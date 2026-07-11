@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-clinic-red: #A6262B;
+  --color-clinic-red-dark: #7D1B1F;
+  --color-clinic-black: #1A1A1A;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
