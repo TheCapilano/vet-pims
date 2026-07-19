@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 
 export default function DashboardPage() {
@@ -44,7 +45,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      {/* Top bar — red accent, this page's assigned color */}
       <div className="bg-clinic-red px-6 py-4 flex items-center justify-between">
         <h1 className="text-white font-semibold text-lg">Dashboard</h1>
         <div className="flex items-center gap-4">
@@ -58,10 +58,15 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Content area — white cards on dark background */}
       <div className="p-6">
-        <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-md">
-          <p className="text-zinc-900 text-sm">More dashboard content coming in later phases.</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl">
+          <Link
+            href="/clients"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-teal-600 transition-colors"
+          >
+            <p className="text-teal-600 text-sm font-medium">Clients & Patients</p>
+            <p className="text-zinc-400 text-xs mt-1">Search or add clients</p>
+          </Link>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ type ClientResult = {
   name: string
   address: string | null
   phone_numbers: string[]
+  patient_names: string[]
 }
 
 export default function ClientsPage() {
@@ -32,7 +33,6 @@ export default function ClientsPage() {
     setSearching(false)
   }, [])
 
-  // Live search: fires 300ms after typing pauses
   useEffect(() => {
     if (!searchTerm.trim()) {
       setResults([])
@@ -46,7 +46,6 @@ export default function ClientsPage() {
     return () => clearTimeout(timeoutId)
   }, [searchTerm, runSearch])
 
-  // Manual search: fires immediately on submit/Enter, skipping the debounce wait
   function handleManualSearch(e: React.FormEvent) {
     e.preventDefault()
     runSearch(searchTerm)
@@ -54,11 +53,11 @@ export default function ClientsPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center justify-between">
-        <h1 className="text-white font-semibold text-lg">Clients</h1>
+      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
         <Link href="/dashboard" className="text-sm text-white/80 hover:text-white">
-          ← Back to Dashboard
+          ← Back
         </Link>
+        <h1 className="text-white font-semibold text-lg">Clients</h1>
       </div>
 
       <div className="p-6">
@@ -66,7 +65,7 @@ export default function ClientsPage() {
           <form onSubmit={handleManualSearch} className="flex gap-2 mb-4">
             <input
               type="text"
-              placeholder="Search by name or phone..."
+              placeholder="Search by name, phone, or pet..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="flex-1 px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-teal-600"
@@ -99,6 +98,11 @@ export default function ClientsPage() {
                 <p className="text-xs text-zinc-500">
                   {client.phone_numbers.filter(Boolean).join(', ') || 'No phone on file'}
                 </p>
+                {client.patient_names.filter(Boolean).length > 0 && (
+                  <p className="text-xs text-teal-600 mt-0.5">
+                    Pets: {client.patient_names.filter(Boolean).join(', ')}
+                  </p>
+                )}
               </Link>
             ))}
           </div>
