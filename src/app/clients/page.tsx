@@ -90,15 +90,16 @@ export default function ClientsPage() {
 
           <div className="flex flex-col gap-2">
             {results.map((client) => (
-              <div
+              <Link
                 key={client.client_id}
-                className="border border-zinc-200 rounded-lg p-3 hover:bg-zinc-50 cursor-pointer transition-colors"
+                href={`/clients/${client.client_id}`}
+                className="block border border-zinc-200 rounded-lg p-3 hover:bg-zinc-50 transition-colors"
               >
                 <p className="text-sm font-medium text-zinc-900">{client.name}</p>
                 <p className="text-xs text-zinc-500">
                   {client.phone_numbers.filter(Boolean).join(', ') || 'No phone on file'}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
 
