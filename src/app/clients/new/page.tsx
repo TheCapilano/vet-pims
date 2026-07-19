@@ -83,11 +83,11 @@ export default function NewClientPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center justify-between">
-        <h1 className="text-white font-semibold text-lg">Add New Client</h1>
+      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
         <Link href="/clients" className="text-sm text-white/80 hover:text-white">
-          ← Back to Clients
+          ← Back
         </Link>
+        <h1 className="text-white font-semibold text-lg">Add New Client</h1>
       </div>
 
       <div className="p-6">
