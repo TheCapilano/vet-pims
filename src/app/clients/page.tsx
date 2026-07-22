@@ -96,11 +96,11 @@ export default function ClientsPage() {
               >
                 <p className="text-sm font-medium text-zinc-900">{client.name}</p>
                 <p className="text-xs text-zinc-500">
-                  {client.phone_numbers.filter(Boolean).join(', ') || 'No phone on file'}
+                  {(client.phone_numbers || []).filter(Boolean).join(', ') || 'No phone on file'}
                 </p>
-                {client.patient_names.filter(Boolean).length > 0 && (
+                {(client.patient_names || []).filter(Boolean).length > 0 && (
                   <p className="text-xs text-teal-600 mt-0.5">
-                    Pets: {client.patient_names.filter(Boolean).join(', ')}
+                    Pets: {(client.patient_names || []).filter(Boolean).join(', ')}
                   </p>
                 )}
               </Link>
