@@ -67,6 +67,14 @@ export default function DashboardPage() {
             <p className="text-teal-600 text-sm font-medium">Clients & Patients</p>
             <p className="text-zinc-400 text-xs mt-1">Search or add clients</p>
           </Link>
+
+          <Link
+            href="/inventory"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-amber-600 transition-colors"
+          >
+            <p className="text-amber-600 text-sm font-medium">Inventory</p>
+            <p className="text-zinc-400 text-xs mt-1">Stock & low-stock alerts</p>
+          </Link>
         </div>
       </div>
     </div>
