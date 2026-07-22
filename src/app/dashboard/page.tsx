@@ -75,6 +75,20 @@ export default function DashboardPage() {
             <p className="text-amber-600 text-sm font-medium">Inventory</p>
             <p className="text-zinc-400 text-xs mt-1">Stock & low-stock alerts</p>
           </Link>
+          <Link
+            href="/visits/new"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-blue-600 transition-colors"
+          >
+            <p className="text-blue-600 text-sm font-medium">New Visit</p>
+            <p className="text-zinc-400 text-xs mt-1">Log a patient visit</p>
+          </Link>
+          <Link
+            href="/visits"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-blue-600 transition-colors"
+          >
+            <p className="text-blue-600 text-sm font-medium">Visits</p>
+            <p className="text-zinc-400 text-xs mt-1">Today's visit log</p>
+          </Link>
         </div>
       </div>
     </div>

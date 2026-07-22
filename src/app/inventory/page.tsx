@@ -61,8 +61,9 @@ export default function InventoryPage() {
             {items.map((item) => {
               const isLow = item.stock_qty <= item.reorder_threshold
               return (
-                <div
+                <Link
                   key={item.id}
+                  href={`/inventory/${item.id}`}
                   className={`border rounded-lg p-3 flex items-center justify-between ${
                     isLow ? 'border-amber-400 bg-amber-50' : 'border-zinc-200'
                   }`}
@@ -81,7 +82,7 @@ export default function InventoryPage() {
                       <p className="text-xs text-amber-600">Low stock</p>
                     )}
                   </div>
-                </div>
+                </Link>
               )
             })}
           </div>
