@@ -4,29 +4,11 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
-type Patient = {
-  id: string
-  name: string
-  species: string | null
-  breed: string | null
-  dob: string | null
-  client_id: string
-}
-
-type Client = {
-  id: string
-  name: string
-}
-
-type HistoryEntry = {
-  id: string
-  complaint: string | null
-  diagnosis: string | null
-  medications: string | null
-  notes: string | null
-  entry_date: string
-}
+type Patient = { id: string; name: string; species: string | null; breed: string | null; dob: string | null; client_id: string }
+type Client = { id: string; name: string }
+type HistoryEntry = { id: string; complaint: string | null; diagnosis: string | null; medications: string | null; notes: string | null; entry_date: string }
 
 export default function PatientProfilePage() {
   const params = useParams()
@@ -40,18 +22,11 @@ export default function PatientProfilePage() {
   useEffect(() => {
     async function loadPatient() {
       const { data: patientData } = await supabase
-        .from('patients')
-        .select('id, name, species, breed, dob, client_id')
-        .eq('id', patientId)
-        .single()
+        .from('patients').select('id, name, species, breed, dob, client_id').eq('id', patientId).single()
 
       if (patientData) {
         const { data: ownerData } = await supabase
-          .from('clients')
-          .select('id, name')
-          .eq('id', patientData.client_id)
-          .single()
-
+          .from('clients').select('id, name').eq('id', patientData.client_id).single()
         setOwner(ownerData)
       }
 
@@ -87,12 +62,11 @@ export default function PatientProfilePage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
-        <Link href={owner ? `/clients/${owner.id}` : '/clients'} className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">{patient.name}</h1>
-      </div>
+      <PageHeader
+        title={patient.name}
+        accentColor="bg-teal-600"
+        backHref={owner ? `/clients/${owner.id}` : '/clients'}
+      />
 
       <div className="p-6 flex flex-col gap-4 max-w-lg">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6">
@@ -118,17 +92,12 @@ export default function PatientProfilePage() {
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6">
           <div className="flex items-center justify-between mb-3">
             <p className="text-sm font-medium text-zinc-900">History</p>
-            <Link
-              href={`/patients/${patientId}/history/new`}
-              className="text-sm text-teal-600 hover:text-teal-700"
-            >
+            <Link href={`/patients/${patientId}/history/new`} className="text-sm text-teal-600 hover:text-teal-700">
               + Add Entry
             </Link>
           </div>
 
-          {history.length === 0 && (
-            <p className="text-sm text-zinc-400">No history entries yet.</p>
-          )}
+          {history.length === 0 && <p className="text-sm text-zinc-400">No history entries yet.</p>}
 
           <div className="flex flex-col gap-3">
             {history.map((entry) => (

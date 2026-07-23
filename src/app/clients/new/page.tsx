@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 type PhoneEntry = {
   phone_number: string
@@ -60,17 +60,14 @@ export default function NewClientPage() {
 
     const validPhones = phones.filter((p) => p.phone_number.trim())
     if (validPhones.length > 0) {
-      const { error: phoneError } = await supabase
-        .from('client_phones')
-        .insert(
-          validPhones.map((p) => ({
-            client_id: client.id,
-            phone_number: p.phone_number,
-            type: p.type,
-            label: p.label || null,
-          }))
-        )
-
+      const { error: phoneError } = await supabase.from('client_phones').insert(
+        validPhones.map((p) => ({
+          client_id: client.id,
+          phone_number: p.phone_number,
+          type: p.type,
+          label: p.label || null,
+        }))
+      )
       if (phoneError) {
         setError('Client saved, but phone numbers failed to save.')
         setSaving(false)
@@ -83,12 +80,7 @@ export default function NewClientPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
-        <Link href="/clients" className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">Add New Client</h1>
-      </div>
+      <PageHeader title="Add New Client" accentColor="bg-teal-600" backHref="/clients" />
 
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">

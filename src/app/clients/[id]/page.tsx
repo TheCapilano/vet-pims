@@ -4,26 +4,11 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
-type Client = {
-  id: string
-  name: string
-  address: string | null
-}
-
-type Phone = {
-  id: string
-  phone_number: string
-  type: string
-  label: string | null
-}
-
-type Patient = {
-  id: string
-  name: string
-  species: string | null
-  breed: string | null
-}
+type Client = { id: string; name: string; address: string | null }
+type Phone = { id: string; phone_number: string; type: string; label: string | null }
+type Patient = { id: string; name: string; species: string | null; breed: string | null }
 
 export default function ClientDetailPage() {
   const params = useParams()
@@ -37,20 +22,11 @@ export default function ClientDetailPage() {
   useEffect(() => {
     async function loadClient() {
       const { data: clientData } = await supabase
-        .from('clients')
-        .select('id, name, address')
-        .eq('id', clientId)
-        .single()
-
+        .from('clients').select('id, name, address').eq('id', clientId).single()
       const { data: phoneData } = await supabase
-        .from('client_phones')
-        .select('id, phone_number, type, label')
-        .eq('client_id', clientId)
-
+        .from('client_phones').select('id, phone_number, type, label').eq('client_id', clientId)
       const { data: patientData } = await supabase
-        .from('patients')
-        .select('id, name, species, breed')
-        .eq('client_id', clientId)
+        .from('patients').select('id, name, species, breed').eq('client_id', clientId)
 
       setClient(clientData)
       setPhones(phoneData || [])
@@ -79,12 +55,7 @@ export default function ClientDetailPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
-        <Link href="/clients" className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">{client.name}</h1>
-      </div>
+      <PageHeader title={client.name} accentColor="bg-teal-600" backHref="/clients" />
 
       <div className="p-6 flex flex-col gap-4 max-w-lg">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6">

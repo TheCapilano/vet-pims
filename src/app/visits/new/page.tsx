@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 type PatientResult = {
   patient_id: string
@@ -40,6 +41,10 @@ export default function NewVisitPage() {
   const [complaint, setComplaint] = useState('')
   const [diagnosis, setDiagnosis] = useState('')
   const [notes, setNotes] = useState('')
+
+  const [paymentAmount, setPaymentAmount] = useState('')
+  const [paymentMethod, setPaymentMethod] = useState<'cash' | 'vodafone_cash' | 'instapay'>('cash')
+
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
@@ -146,6 +151,34 @@ export default function NewVisitPage() {
       return
     }
 
+    // Create the invoice, auto-calculated from the line items total
+    const { data: invoice, error: invoiceError } = await supabase
+      .from('invoices')
+      .insert({
+        visit_id: visit.id,
+        total_due: total,
+      })
+      .select()
+      .single()
+
+    if (invoiceError) {
+      console.error('Failed to create invoice:', invoiceError.message)
+    }
+
+    // Record the payment taken at checkout, if any was entered
+    const paidNow = Number(paymentAmount) || 0
+    if (invoice && paidNow > 0) {
+      const { error: paymentError } = await supabase.from('payments').insert({
+        invoice_id: invoice.id,
+        amount: paidNow,
+        method: paymentMethod,
+        created_by: user?.id,
+      })
+      if (paymentError) {
+        console.error('Failed to record payment:', paymentError.message)
+      }
+    }
+
     // Auto-log this visit into the patient's history
     const medicationsSummary = lineItems
       .map((item) => `${item.item_name} x${item.quantity}`)
@@ -160,7 +193,6 @@ export default function NewVisitPage() {
     })
 
     if (historyError) {
-      // Visit itself succeeded — don't block the flow, just surface it
       console.error('Failed to log history:', historyError.message)
     }
 
@@ -169,13 +201,7 @@ export default function NewVisitPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-blue-600 px-6 py-4 flex items-center gap-4">
-        <Link href="/dashboard" className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">New Visit</h1>
-      </div>
-
+      <PageHeader title="New Visit" accentColor="bg-blue-600" backHref="/dashboard" />
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">
           {!selectedPatient ? (
@@ -292,6 +318,43 @@ export default function NewVisitPage() {
               <div className="flex justify-between items-baseline mb-4 pt-2 border-t border-zinc-200">
                 <span className="text-sm text-zinc-600">Total</span>
                 <span className="text-xl font-semibold text-zinc-900">${total.toFixed(2)}</span>
+              </div>
+
+              <div className="mb-4 p-3 bg-zinc-50 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <label className="text-sm text-zinc-600">Payment Received</label>
+                  <button
+                    type="button"
+                    onClick={() => setPaymentAmount(total.toFixed(2))}
+                    className="text-xs text-green-600 hover:text-green-700"
+                  >
+                    Pay in full
+                  </button>
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="0.00"
+                    value={paymentAmount}
+                    onChange={(e) => setPaymentAmount(e.target.value)}
+                    className="flex-1 px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
+                  <select
+                    value={paymentMethod}
+                    onChange={(e) => setPaymentMethod(e.target.value as typeof paymentMethod)}
+                    className="px-2 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  >
+                    <option value="cash">Cash</option>
+                    <option value="vodafone_cash">Vodafone Cash</option>
+                    <option value="instapay">InstaPay</option>
+                  </select>
+                </div>
+                {Number(paymentAmount) < total && Number(paymentAmount) > 0 && (
+                  <p className="text-xs text-amber-600 mt-1">
+                    Remaining balance: ${(total - Number(paymentAmount)).toFixed(2)} — can be collected later via Billing
+                  </p>
+                )}
               </div>
 
               <textarea

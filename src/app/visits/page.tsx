@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 type VisitLogEntry = {
   visit_id: string
@@ -24,11 +25,8 @@ export default function VisitsLogPage() {
 
   const loadVisits = useCallback(async (targetDate: string) => {
     setLoading(true)
-    const { data, error } = await supabase
-      .rpc('get_visits_for_date', { target_date: targetDate })
-    if (!error && data) {
-      setVisits(data)
-    }
+    const { data, error } = await supabase.rpc('get_visits_for_date', { target_date: targetDate })
+    if (!error && data) setVisits(data)
     setLoading(false)
   }, [])
 
@@ -40,12 +38,7 @@ export default function VisitsLogPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-blue-600 px-6 py-4 flex items-center gap-4">
-        <Link href="/dashboard" className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">Visit Log</h1>
-      </div>
+      <PageHeader title="Visit Log" accentColor="bg-blue-600" backHref="/dashboard" />
 
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">
@@ -56,30 +49,20 @@ export default function VisitsLogPage() {
               onChange={(e) => setDate(e.target.value)}
               className="px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            <Link
-              href="/visits/new"
-              className="text-sm text-blue-600 hover:text-blue-700"
-            >
+            <Link href="/visits/new" className="text-sm text-blue-600 hover:text-blue-700">
               + New Visit
             </Link>
           </div>
 
           {loading && <p className="text-sm text-zinc-400">Loading...</p>}
-          {!loading && visits.length === 0 && (
-            <p className="text-sm text-zinc-400">No visits logged for this date.</p>
-          )}
+          {!loading && visits.length === 0 && <p className="text-sm text-zinc-400">No visits logged for this date.</p>}
 
           <div className="flex flex-col gap-2 mb-4">
             {visits.map((visit) => (
-              <div
-                key={visit.visit_id}
-                className="border border-zinc-200 rounded-lg p-3 flex items-center justify-between"
-              >
+              <div key={visit.visit_id} className="border border-zinc-200 rounded-lg p-3 flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-zinc-900">{visit.patient_name}</p>
-                  <p className="text-xs text-zinc-500">
-                    Owner: {visit.owner_name} · Dr. {visit.doctor_name || '—'}
-                  </p>
+                  <p className="text-xs text-zinc-500">Owner: {visit.owner_name} · Dr. {visit.doctor_name || '—'}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-medium text-zinc-900">${Number(visit.total).toFixed(2)}</p>

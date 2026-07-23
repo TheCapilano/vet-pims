@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 export default function NewPatientPage() {
   const params = useParams()
@@ -28,15 +28,13 @@ export default function NewPatientPage() {
 
     setSaving(true)
 
-    const { error: insertError } = await supabase
-      .from('patients')
-      .insert({
-        client_id: clientId,
-        name,
-        species: species || null,
-        breed: breed || null,
-        dob: dob || null,
-      })
+    const { error: insertError } = await supabase.from('patients').insert({
+      client_id: clientId,
+      name,
+      species: species || null,
+      breed: breed || null,
+      dob: dob || null,
+    })
 
     if (insertError) {
       setError('Failed to save pet.')
@@ -49,12 +47,7 @@ export default function NewPatientPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
-        <Link href={`/clients/${clientId}`} className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">Add Pet</h1>
-      </div>
+      <PageHeader title="Add Pet" accentColor="bg-teal-600" backHref={`/clients/${clientId}`} />
 
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">

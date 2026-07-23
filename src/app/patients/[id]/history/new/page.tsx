@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 export default function NewHistoryEntryPage() {
   const params = useParams()
@@ -22,15 +22,13 @@ export default function NewHistoryEntryPage() {
     setError('')
     setSaving(true)
 
-    const { error: insertError } = await supabase
-      .from('patient_history')
-      .insert({
-        patient_id: patientId,
-        complaint: complaint || null,
-        diagnosis: diagnosis || null,
-        medications: medications || null,
-        notes: notes || null,
-      })
+    const { error: insertError } = await supabase.from('patient_history').insert({
+      patient_id: patientId,
+      complaint: complaint || null,
+      diagnosis: diagnosis || null,
+      medications: medications || null,
+      notes: notes || null,
+    })
 
     if (insertError) {
       setError('Failed to save entry.')
@@ -43,12 +41,7 @@ export default function NewHistoryEntryPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
-        <Link href={`/patients/${patientId}`} className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">Add History Entry</h1>
-      </div>
+      <PageHeader title="Add History Entry" accentColor="bg-teal-600" backHref={`/patients/${patientId}`} />
 
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">

@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 export default function NewInventoryItemPage() {
   const [itemName, setItemName] = useState('')
@@ -45,12 +45,7 @@ export default function NewInventoryItemPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-amber-600 px-6 py-4 flex items-center gap-4">
-        <Link href="/inventory" className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">Add Inventory Item</h1>
-      </div>
+      <PageHeader title="Add Inventory Item" accentColor="bg-amber-600" backHref="/inventory" />
 
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">

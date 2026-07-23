@@ -89,6 +89,13 @@ export default function DashboardPage() {
             <p className="text-blue-600 text-sm font-medium">Visits</p>
             <p className="text-zinc-400 text-xs mt-1">Today's visit log</p>
           </Link>
+          <Link
+            href="/billing"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+          >
+            <p className="text-green-600 text-sm font-medium">Billing</p>
+            <p className="text-zinc-400 text-xs mt-1">Outstanding balances</p>
+          </Link>
         </div>
       </div>
     </div>
