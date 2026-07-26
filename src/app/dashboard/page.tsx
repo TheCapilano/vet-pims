@@ -96,6 +96,27 @@ export default function DashboardPage() {
             <p className="text-green-600 text-sm font-medium">Billing</p>
             <p className="text-zinc-400 text-xs mt-1">Outstanding balances</p>
           </Link>
+          <Link
+            href="/expenses"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+          >
+            <p className="text-green-600 text-sm font-medium">Expenses</p>
+            <p className="text-zinc-400 text-xs mt-1">Rent, utilities & more</p>
+          </Link>
+          <Link
+            href="/suppliers"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+          >
+            <p className="text-green-600 text-sm font-medium">Suppliers</p>
+            <p className="text-zinc-400 text-xs mt-1">Bills you owe</p>
+          </Link>
+          <Link
+            href="/revenue"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+          >
+            <p className="text-green-600 text-sm font-medium">Revenue & Cash</p>
+            <p className="text-zinc-400 text-xs mt-1">Profit, balances & payables</p>
+          </Link>
         </div>
       </div>
     </div>
