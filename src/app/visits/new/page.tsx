@@ -42,6 +42,10 @@ export default function NewVisitPage() {
   const [diagnosis, setDiagnosis] = useState('')
   const [notes, setNotes] = useState('')
 
+  const [logTreatment, setLogTreatment] = useState(false)
+  const [treatmentType, setTreatmentType] = useState('')
+  const [intervalDays, setIntervalDays] = useState('')
+
   const [paymentAmount, setPaymentAmount] = useState('')
   const [paymentMethod, setPaymentMethod] = useState<'cash' | 'vodafone_cash' | 'instapay'>('cash')
 
@@ -196,12 +200,25 @@ export default function NewVisitPage() {
       console.error('Failed to log history:', historyError.message)
     }
 
+    // Log a treatment with a follow-up due date, if specified
+    if (logTreatment && treatmentType.trim() && intervalDays !== '' && Number(intervalDays) >= 0) {
+      const { error: treatmentError } = await supabase.from('treatments').insert({
+        patient_id: selectedPatient.patient_id,
+        treatment_type: treatmentType,
+        interval_days: Number(intervalDays),
+      })
+      if (treatmentError) {
+        console.error('Failed to log treatment:', treatmentError.message)
+      }
+    }
+
     router.push(`/clients/${selectedPatient.client_id}`)
   }
 
   return (
     <div className="min-h-screen bg-zinc-900">
       <PageHeader title="New Visit" accentColor="bg-blue-600" backHref="/dashboard" />
+
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">
           {!selectedPatient ? (
@@ -261,6 +278,35 @@ export default function NewVisitPage() {
                     className="w-full px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
                   />
                 </div>
+              </div>
+
+              <div className="mb-3 p-3 bg-zinc-50 rounded-lg">
+                <label className="flex items-center gap-2 text-sm text-zinc-700 mb-2">
+                  <input
+                    type="checkbox"
+                    checked={logTreatment}
+                    onChange={(e) => setLogTreatment(e.target.checked)}
+                  />
+                  This visit includes a treatment with a follow-up due date
+                </label>
+                {logTreatment && (
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="e.g. Dewormer, Rabies booster"
+                      value={treatmentType}
+                      onChange={(e) => setTreatmentType(e.target.value)}
+                      className="flex-1 px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    />
+                    <input
+                      type="number"
+                      placeholder="Days until due"
+                      value={intervalDays}
+                      onChange={(e) => setIntervalDays(e.target.value)}
+                      className="w-32 px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    />
+                  </div>
+                )}
               </div>
 
               <label className="block text-sm text-zinc-600 mb-1">Add Item</label>

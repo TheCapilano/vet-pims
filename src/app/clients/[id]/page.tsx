@@ -19,6 +19,12 @@ export default function ClientDetailPage() {
   const [patients, setPatients] = useState<Patient[]>([])
   const [loading, setLoading] = useState(true)
 
+  const [editingPhoneId, setEditingPhoneId] = useState<string | null>(null)
+  const [editPhoneNumber, setEditPhoneNumber] = useState('')
+  const [editPhoneType, setEditPhoneType] = useState<'call' | 'whatsapp'>('call')
+  const [newPhoneNumber, setNewPhoneNumber] = useState('')
+  const [newPhoneType, setNewPhoneType] = useState<'call' | 'whatsapp'>('whatsapp')
+
   useEffect(() => {
     async function loadClient() {
       const { data: clientData } = await supabase
@@ -36,6 +42,48 @@ export default function ClientDetailPage() {
 
     loadClient()
   }, [clientId])
+
+  async function reloadPhones() {
+    const { data: phoneData } = await supabase
+      .from('client_phones')
+      .select('id, phone_number, type, label')
+      .eq('client_id', clientId)
+    setPhones(phoneData || [])
+  }
+
+  function startEditPhone(phone: Phone) {
+    setEditingPhoneId(phone.id)
+    setEditPhoneNumber(phone.phone_number)
+    setEditPhoneType(phone.type as 'call' | 'whatsapp')
+  }
+
+  async function saveEditPhone() {
+    if (!editingPhoneId) return
+    await supabase
+      .from('client_phones')
+      .update({ phone_number: editPhoneNumber, type: editPhoneType })
+      .eq('id', editingPhoneId)
+    setEditingPhoneId(null)
+    await reloadPhones()
+  }
+
+  async function deletePhone(phoneId: string) {
+    const confirmed = window.confirm('Delete this phone number?')
+    if (!confirmed) return
+    await supabase.from('client_phones').delete().eq('id', phoneId)
+    await reloadPhones()
+  }
+
+  async function addPhone() {
+    if (!newPhoneNumber.trim()) return
+    await supabase.from('client_phones').insert({
+      client_id: clientId,
+      phone_number: newPhoneNumber,
+      type: newPhoneType,
+    })
+    setNewPhoneNumber('')
+    await reloadPhones()
+  }
 
   if (loading) {
     return (
@@ -63,12 +111,60 @@ export default function ClientDetailPage() {
           <p className="text-sm text-zinc-900 mb-4">{client.address || '—'}</p>
 
           <p className="text-xs text-zinc-500 mb-1">Phone Numbers</p>
-          {phones.length === 0 && <p className="text-sm text-zinc-400">None on file</p>}
+          {phones.length === 0 && <p className="text-sm text-zinc-400 mb-2">None on file</p>}
           {phones.map((phone) => (
-            <p key={phone.id} className="text-sm text-zinc-900">
-              {phone.phone_number} <span className="text-xs text-zinc-400">({phone.type}{phone.label ? `, ${phone.label}` : ''})</span>
-            </p>
+            <div key={phone.id} className="mb-2">
+              {editingPhoneId === phone.id ? (
+                <div className="flex gap-2 items-center">
+                  <input
+                    type="text"
+                    value={editPhoneNumber}
+                    onChange={(e) => setEditPhoneNumber(e.target.value)}
+                    className="flex-1 px-2 py-1 border border-zinc-300 rounded text-sm text-zinc-900"
+                  />
+                  <select
+                    value={editPhoneType}
+                    onChange={(e) => setEditPhoneType(e.target.value as 'call' | 'whatsapp')}
+                    className="px-2 py-1 border border-zinc-300 rounded text-sm text-zinc-900"
+                  >
+                    <option value="call">Call</option>
+                    <option value="whatsapp">WhatsApp</option>
+                  </select>
+                  <button onClick={saveEditPhone} className="text-xs text-teal-600">Save</button>
+                  <button onClick={() => setEditingPhoneId(null)} className="text-xs text-zinc-400">Cancel</button>
+                </div>
+              ) : (
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-zinc-900">
+                    {phone.phone_number} <span className="text-xs text-zinc-400">({phone.type}{phone.label ? `, ${phone.label}` : ''})</span>
+                  </p>
+                  <div className="flex gap-2">
+                    <button onClick={() => startEditPhone(phone)} className="text-xs text-teal-600">Edit</button>
+                    <button onClick={() => deletePhone(phone.id)} className="text-xs text-red-500">Delete</button>
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
+
+          <div className="flex gap-2 mt-2 pt-2 border-t border-zinc-100">
+            <input
+              type="text"
+              placeholder="Add phone number"
+              value={newPhoneNumber}
+              onChange={(e) => setNewPhoneNumber(e.target.value)}
+              className="flex-1 px-2 py-1 border border-zinc-300 rounded text-sm text-zinc-900"
+            />
+            <select
+              value={newPhoneType}
+              onChange={(e) => setNewPhoneType(e.target.value as 'call' | 'whatsapp')}
+              className="px-2 py-1 border border-zinc-300 rounded text-sm text-zinc-900"
+            >
+              <option value="whatsapp">WhatsApp</option>
+              <option value="call">Call</option>
+            </select>
+            <button onClick={addPhone} className="text-xs text-teal-600 whitespace-nowrap">+ Add</button>
+          </div>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6">

@@ -117,6 +117,13 @@ export default function DashboardPage() {
             <p className="text-green-600 text-sm font-medium">Revenue & Cash</p>
             <p className="text-zinc-400 text-xs mt-1">Profit, balances & payables</p>
           </Link>
+          <Link
+            href="/reminders"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-emerald-600 transition-colors"
+          >
+            <p className="text-emerald-600 text-sm font-medium">Reminders</p>
+            <p className="text-zinc-400 text-xs mt-1">Treatments due soon</p>
+          </Link>
         </div>
       </div>
     </div>
