@@ -54,7 +54,7 @@ export default function RemindersPage() {
     if (cleanPhone.startsWith('0')) {
       cleanPhone = '20' + cleanPhone.slice(1)
     }
-    return 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(message)
+    return 'https://api.whatsapp.com/send?phone=' + cleanPhone + '&text=' + encodeURIComponent(message)
   }
   return (
     <div className="min-h-screen bg-zinc-900">
