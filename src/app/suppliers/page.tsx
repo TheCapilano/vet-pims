@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
+import { useRequireDoctor } from '@/lib/useRole'
 import PageHeader from '@/components/PageHeader'
 
 type Supplier = {
@@ -33,6 +34,8 @@ export default function SuppliersPage() {
   const [billDueDate, setBillDueDate] = useState('')
 
   const [error, setError] = useState('')
+
+  const { checking, authorized } = useRequireDoctor()
 
   async function loadData() {
     setLoading(true)
@@ -103,6 +106,18 @@ export default function SuppliersPage() {
   }
 
   const totalOwed = bills.reduce((sum, b) => sum + Number(b.amount), 0)
+  
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
+        <p className="text-zinc-400 text-sm">Loading...</p>
+      </div>
+    )
+  } 
+
+  if (!authorized) {
+    return null
+  }
 
   return (
     <div className="min-h-screen bg-zinc-900">

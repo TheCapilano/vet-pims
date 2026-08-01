@@ -124,6 +124,13 @@ export default function DashboardPage() {
             <p className="text-emerald-600 text-sm font-medium">Reminders</p>
             <p className="text-zinc-400 text-xs mt-1">Treatments due soon</p>
           </Link>
+          <Link
+            href="/backup"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+          >
+            <p className="text-green-600 text-sm font-medium">Backup</p>
+            <p className="text-zinc-400 text-xs mt-1">Export your data</p>
+          </Link>
         </div>
       </div>
     </div>

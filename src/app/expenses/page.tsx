@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import PageHeader from '@/components/PageHeader'
+import { useRequireDoctor } from '@/lib/useRole'
 
 type Expense = {
   id: string
@@ -23,6 +24,8 @@ export default function ExpensesPage() {
   const [notes, setNotes] = useState('')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+
+  const { checking, authorized } = useRequireDoctor()
 
   async function loadExpenses() {
     setLoading(true)
@@ -83,6 +86,18 @@ export default function ExpensesPage() {
   const monthTotal = expenses
     .filter((e) => e.paid_at.startsWith(new Date().toISOString().slice(0, 7)))
     .reduce((sum, e) => sum + Number(e.amount), 0)
+
+    if (checking) {
+      return (
+        <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
+          <p className="text-zinc-400 text-sm">Loading...</p>
+        </div>
+      )
+    }
+
+    if (!authorized) {
+      return null
+    } 
 
   return (
     <div className="min-h-screen bg-zinc-900">

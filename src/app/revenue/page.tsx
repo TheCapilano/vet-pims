@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 import PageHeader from '@/components/PageHeader'
+import { useRequireDoctor } from '@/lib/useRole'
 
 type CashBalance = {
   method: string
@@ -17,6 +18,12 @@ type ProfitSummary = {
   net_profit: number
 }
 
+type TopItem = {
+  item_name: string
+  quantity_sold: number
+  revenue: number
+}
+
 function firstOfMonth() {
   const d = new Date()
   return new Date(d.getFullYear(), d.getMonth(), 1).toISOString().split('T')[0]
@@ -27,8 +34,11 @@ function todayISO() {
 }
 
 export default function RevenuePage() {
+  const { checking, authorized } = useRequireDoctor()
+
   const [cashBalances, setCashBalances] = useState<CashBalance[]>([])
   const [profit, setProfit] = useState<ProfitSummary | null>(null)
+  const [topItems, setTopItems] = useState<TopItem[]>([])
   const [outstandingReceivable, setOutstandingReceivable] = useState(0)
   const [outstandingPayable, setOutstandingPayable] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -48,6 +58,10 @@ export default function RevenuePage() {
       setProfit(profitData[0])
     }
 
+    const { data: topItemsData } = await supabase
+      .rpc('get_top_selling_items', { start_date: startDate, end_date: endDate })
+    setTopItems(topItemsData || [])
+
     const { data: balancesData } = await supabase.rpc('get_outstanding_balances')
     const totalReceivable = (balancesData || []).reduce((sum: number, b: { balance: number }) => sum + Number(b.balance), 0)
     setOutstandingReceivable(totalReceivable)
@@ -63,13 +77,27 @@ export default function RevenuePage() {
   }, [startDate, endDate])
 
   useEffect(() => {
-    loadData()
-  }, [loadData])
+    if (authorized) {
+      loadData()
+    }
+  }, [authorized, loadData])
 
   function methodLabel(method: string) {
     if (method === 'vodafone_cash') return 'Vodafone Cash'
     if (method === 'instapay') return 'InstaPay'
     return 'Cash'
+  }
+
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
+        <p className="text-zinc-400 text-sm">Loading...</p>
+      </div>
+    )
+  }
+
+  if (!authorized) {
+    return null
   }
 
   return (
@@ -129,6 +157,26 @@ export default function RevenuePage() {
           <p className="text-xs text-zinc-400 mt-2">
             Cost of goods: ${profit ? Number(profit.cogs).toFixed(2) : '0.00'} · Expenses: ${profit ? Number(profit.expenses_total).toFixed(2) : '0.00'}
           </p>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6">
+          <p className="text-sm font-medium text-zinc-900 mb-1">Top Selling Items</p>
+          <p className="text-xs text-zinc-400 mb-3">Same date range as above</p>
+          {topItems.length === 0 && <p className="text-sm text-zinc-400">No sales in this period.</p>}
+          <div className="flex flex-col gap-2">
+            {topItems.map((item, i) => (
+              <div key={item.item_name} className="flex items-center justify-between border-b border-zinc-100 pb-2 last:border-0 last:pb-0">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-zinc-400 w-4">{i + 1}</span>
+                  <span className="text-sm text-zinc-900">{item.item_name}</span>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm font-medium text-zinc-900">${Number(item.revenue).toFixed(2)}</p>
+                  <p className="text-xs text-zinc-400">{item.quantity_sold} sold</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
