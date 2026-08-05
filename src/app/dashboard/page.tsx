@@ -75,13 +75,7 @@ export default function DashboardPage() {
             <p className="text-amber-600 text-sm font-medium">Inventory</p>
             <p className="text-zinc-400 text-xs mt-1">Stock & low-stock alerts</p>
           </Link>
-          <Link
-            href="/visits/new"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-blue-600 transition-colors"
-          >
-            <p className="text-blue-600 text-sm font-medium">New Visit</p>
-            <p className="text-zinc-400 text-xs mt-1">Log a patient visit</p>
-          </Link>
+
           <Link
             href="/visits"
             className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-blue-600 transition-colors"
@@ -89,34 +83,7 @@ export default function DashboardPage() {
             <p className="text-blue-600 text-sm font-medium">Visits</p>
             <p className="text-zinc-400 text-xs mt-1">Today's visit log</p>
           </Link>
-          <Link
-            href="/billing"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-          >
-            <p className="text-green-600 text-sm font-medium">Billing</p>
-            <p className="text-zinc-400 text-xs mt-1">Outstanding balances</p>
-          </Link>
-          <Link
-            href="/expenses"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-          >
-            <p className="text-green-600 text-sm font-medium">Expenses</p>
-            <p className="text-zinc-400 text-xs mt-1">Rent, utilities & more</p>
-          </Link>
-          <Link
-            href="/suppliers"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-          >
-            <p className="text-green-600 text-sm font-medium">Suppliers</p>
-            <p className="text-zinc-400 text-xs mt-1">Bills you owe</p>
-          </Link>
-          <Link
-            href="/revenue"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-          >
-            <p className="text-green-600 text-sm font-medium">Revenue & Cash</p>
-            <p className="text-zinc-400 text-xs mt-1">Profit, balances & payables</p>
-          </Link>
+
           <Link
             href="/reminders"
             className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-emerald-600 transition-colors"
@@ -124,13 +91,50 @@ export default function DashboardPage() {
             <p className="text-emerald-600 text-sm font-medium">Reminders</p>
             <p className="text-zinc-400 text-xs mt-1">Treatments due soon</p>
           </Link>
+
           <Link
-            href="/backup"
+            href="/billing"
             className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
           >
-            <p className="text-green-600 text-sm font-medium">Backup</p>
-            <p className="text-zinc-400 text-xs mt-1">Export your data</p>
+            <p className="text-green-600 text-sm font-medium">Billing</p>
+            <p className="text-zinc-400 text-xs mt-1">Outstanding balances</p>
           </Link>
+
+          {profile.role === 'doctor' && (
+            <>
+              <Link
+                href="/expenses"
+                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+              >
+                <p className="text-green-600 text-sm font-medium">Expenses</p>
+                <p className="text-zinc-400 text-xs mt-1">Rent, utilities & more</p>
+              </Link>
+
+              <Link
+                href="/suppliers"
+                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+              >
+                <p className="text-green-600 text-sm font-medium">Suppliers</p>
+                <p className="text-zinc-400 text-xs mt-1">Bills you owe</p>
+              </Link>
+
+              <Link
+                href="/revenue"
+                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+              >
+                <p className="text-green-600 text-sm font-medium">Revenue & Cash</p>
+                <p className="text-zinc-400 text-xs mt-1">Profit, balances & payables</p>
+              </Link>
+
+              <Link
+                href="/backup"
+                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
+              >
+                <p className="text-green-600 text-sm font-medium">Backup</p>
+                <p className="text-zinc-400 text-xs mt-1">Export your data</p>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
