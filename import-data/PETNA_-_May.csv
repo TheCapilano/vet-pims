@@ -1,0 +1,193 @@
+#,Date,Owner's Name,Pet Name,Phone Number,Item,Product,Price,Notes,Column 1,,,,,منتج,سعار,رباعي,خماسي,ثماني,ديدان ,حشرات 
+1,16/5/2026,Fatma Ahmed,Kitty,011124229707,ابر,,200,Cef.mov.hist.meta,,75520,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+2,16/5/2026,Noor Mohammed ,,,منتج,Chat chat (200),800,(qty=4),,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+3,16/5/2026,Dr.Osama Pet medic,,01050784784,تطعيم فطريات,,720,360x2 - Insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+4,17/5/2026,Gehan Ahmed,Sokra,01123416591,"ابر, استضافة",,500,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+5,17/5/2026,Hajja Hoda,Ninja- bosy- bibo,01285271112,"كشف , ابر, حشرات, ديدان, حلاقه, ثنائي",Deverm (150),1500,vfc (1 month) - cef.mov.his.meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+6,17/5/2026,Walaa ElSaed,Kitty,01097881922,"كشف , ابر, منتج",Procat food (100),350,,,,,37,منتج,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+7,17/5/2026,Fatma Gaber,,,منتج,Alpha dry,80,,,,,4,سعار,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+8,18/5/2026,Noor Mohammed ,,,حلاقه,,200,,,,,9,رباعي,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+9,18/5/2026,Nadine,Nutella,,كشف,,150,vfc,,,,2,خماسي,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+10,18/5/2026,Aya Maher,Toota,01030807167,"حلاقه, قص ضوافر, shower, سعار, ديدان, حشرات",Deverm (150),990,14days,,,,3,ثماني,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE
+11,18/5/2026,Hajja Hoda,Boosy ,01285271112,ابر,,150,,,,,1,ثنائي,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+12,19/5/2026,Mulhim Othman,Bosy,01055564787,"كشف , ابر, منتج","Dodzy food (100), Procat food (100)",320,1/4 kilo - vfc ,,_,,27,ديدان ,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+13,19/5/2026,Mohammed Fawzy,Mylo ,01287545253,,,950,,,,,25,حشرات ,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+14,19/5/2026,Donia Yasser,Ziko,01028749045,"كشف, ابر, تحاليل",,400,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+15,19/5/2026,Walaa ElSaed,Kitty,01097881922,ابر,,200,cef.melox.anto,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+16,19/5/226,Hajja Hoda,Boosy ,01285271112,"حلاقه, ابر, حشرات, ديدان","Deverm (150), Droppers (150)",550,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+17,20/5,Aml,besla,0114835950,"كشف , ابر",,200,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+18,20/5,Taha,,,"كشف , ابر, سونار",,450,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+19,20/5,Noha Mohammed,dusty,01001034452,"كشف , ابر, منتج",Pti Omega (150),450,insta,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+20,20/5,Walaa ElSaed,kity,01097881922,,,200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+21,20/5,Ahmed Ali ,,0123568914,كشف,,300,2ex,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+22,21/5/2026,Lena,Simba,01028863775,رباعي,,600,12/6,,,,,,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+23,21/5/2026,Mariam El Gamal ,falfel,0150864485,"تطعيم فطريات, حشرات, ديدان, منتج","Drontal (200), Deverm (150), Alonzo Diar (200)",1210,insta,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+24,21/5/2026,Mai Mohammed,kalbs,01141310221,"ابر, عملية , حلاقه",,950,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+25,21/5,Fatma Mohammed,,01125227310,منتج,forvet spray (120),150,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+26,21/5/2026,Noha Mohammed,dasti,01001034452,ابر,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+27,21/5/2026,Alaa Hamde,,01146292914,"كشف , سونار",,300,insta ,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+28,21/5/2026,Walaa ElSaed,kitty,01097881922,ابر,,300,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+29,21/5,Seif Ahmed,lala,01013275728,"كشف , ابر, منتج",colar 100,700,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+30,22/5/2026,Mahmoud Gaweesh,fo2sh,01069767593,"عملية , قص ضوافر, حشرات, حلاقه",,0,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+31,22/5/2026,Donia Yasser,Ziko,01028749045,"تحاليل, منتج",Zee litter (120),120,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+32,22/5/2025,Noha Mohammed,Dusty,01001034452,ابر,,150,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+33,22/5/2026,Noor Mohammed ,,,حلاقه,,200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+34,22/5/2026,Mai Mohammed,kalbs,01141310221,ابر,,100,سابت سيفتريكسون مكان الحقن,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+35,22/5/2026,Mohammed Alqasas,Sola,,"حشرات, ديدان, حلاقه, زياره منزليه","Deverm (150), Droppers (150)",580,زياره منزليه 150,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+36,23/5/2026,Noor Mohammed ,So3ad,,كشف,,150,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+37,23/5/2026,Yomna Ahmed Hamza,lalosa - Mimi,01013082865,"حلاقه, منتج","Filos Can (100), My dear (150), My dear (110)",850,filo 70 my 110,,_,,,,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+38,23/5,Rahma Ramadan,msh msh / lolo,,رباعي,,1100,x2,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+39,23/5/2026,Bassant,batats,01127526695,"ابر, حشرات",,200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+40,23/5/2026,fan,,,,,-985,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+41,23/5/2026,Soha Ismail,حجز,,عملية,,100,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+42,23/5/2026,Basmala Ahmed,Tooti,01017855410,ثلاثي,,600,vfc,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+43,23/5/2026,Noha Ahmed,Dusty,01001034452,ابر,,200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+44,23/5/2026,Noor Mohammed ,,,حلاقه,,200,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+45,23/5/2025,Mai Mohammed,Kalbs,01141310221,"ابر, منتج",Pti Omega (150),300,,,,,,,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE
+46,24/5/2026,Shereen Saeed,Loki,01274577375,"ابر, حشرات, خماسي",,900,حقن 2 يوم انتوبلكس هستا ,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+47,24/5/2026,Donia Yasser,Ziko,01028749045,"ابر, حشرات, ديدان, تحاليل","Drontal (200), Droppers (150)",1370, حبايتين دورنتال ديكسا ميتا هستا,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+48,24/5/2026,Negm Eldein,loza,01016214089,"حشرات, ديدان, حلاقه","Drontal (200), Droppers (150)",570,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+49,24/5/2026,Khalid ,sokra,,"كشف , حشرات, ديدان, تطعيم فطريات, حلاقه","PTI droppers, Drontal (200)",1250,21,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+50,25/5/2026,Noha Ahmed,Dusty,01001034452,ابر,,200,Ceft.Hista.Meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+51,25/5/2026,Fan ,,,,,-1950,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+52,25/5/2026,Shereen Saeed,,,منتج,Pti Immunomax (150),200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+53,25/5/2026,sabren,gony,,"حشرات, حلاقه, قص ضوافر",Droppers (150),500,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+54,25/5/2026,Sedra,oreo,01111656881,"تحاليل, ابر",,1200,hesta meta cef mova,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+55,25/5/2026,Ahmed Naser,,01271924024,"حلاقه, منتج, حشرات","Foam shampoo (100), Droppers (150)",720,2,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+56,25/5/2026,Fatma Ahmed,,,ديدان,Drontal (200),375,حبايه ونص ,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+57,25/5/2026,Mario Essam,,01557713143,"كشف , ابر",,450,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+58,26/5/2026,Sedra,oreo,01111656881,,,250,Cef.Gastrodine.dancet.mov.hist.meta,,,,,,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE
+59,26/5/2026,Ahmed Samy ,oreo,01022309411,"خماسي, حشرات, منتج","PTI droppers, Pti Immunomax (150)",620,150,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+60,26/5/2026,Adham AbdelAziz,Basyoony,01550808021,"كشف , ابر, منتج","Filos Can (100), Alonzo Hair (200)",800,Antoplex. Ceftriaxone.Dancet,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+61,27/5/2026,Sedra,Oreo,,"منتج, ابر",Filos Can (100),330,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+62,29/5/2026,Khalid ,,01036887169,"حشرات, حلاقه, تنظيف اذن, قص ضوافر",Droppers (150),470,,,,3800,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+63,29/5/2026,Nadine,,,,,250,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+64,29/5/2026,Ali Hossam,3 cats,01091920334,"حلاقه, حشرات, ابر, كشف , ديدان","Droppers (150), Deverm (150)",1400,insta,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+65,29/5/2026,Habiba Alaa,toty,01026077535,منتج,Droppers (150),240,2 - insta,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+66,29/5/2026,Rania,,,منتج,Dodzy food (85),80,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+67,29/5/2026,Sedra,Oreo,,"ابر, محاليل",,170,Dancet.Gastrodine,,,,,,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE
+68,30/5/2026,Asmaa Hany ,Sokr,01008571410,"ديدان, تطعيم فطريات, رباعي, سعار",Drontal (200),1700,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+69,30/5/2026,كهرباء,,,,,-600,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+70,30/5/2026,Alaa Khalid,عملية حجز ,01016600210,,,100,insta,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+71,30/5/2026,Seif Kamal,,01100057261,"ابر, حلاقه, قص ضوافر, منتج, shower, تنظيف اذن, ديدان","Josi (300), Drontal (200)",855,hista,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+72,30/5/2026,Ali Hossam,,,ابر,,70,hista,,,,,,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+73,30/5,Reham Omar,,,"رباعي, ابر",,600,hista,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+74,30/5,sedra,,,"محاليل, ابر",,240,gastro.dancet,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+75,30/5,Basmalla Kamal,,01275813852,"ابر, منتج",Alonzo Hair (200),300,antoplex,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+76,30/5,emdad,,,كشف,,-1960,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+77,31/5,Mahmoud El behery,oreo,01140107030,"كشف , ابر, محاليل",,600,dancet gastroden hesta meta ,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+78,31/5,rahel abdelmenm,sokar,01003526674,"كشف , ابر",,500,hesta meta movac cef,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+79,1/6/2026,Soha Ismail,,,"عملية, ابر",,900,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+80,1/6/2026,صيدلية,,,,,-170,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+81,1/6/2026,rahel abdelmenm,Sokr,,"ابر, منتج, محاليل",Pti Omega (150),500,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+82,2/6/2026,Alaa Khalid,batats + Cat,01125392660,"عملية , ابر",,1600,Cef.mov.hista.meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+83,2/6/2026,emdad - canula+ towel+5ait,,,,,-1900,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+84,2/6/2026,Mulhim Othman,,01055564787,منتج,"Dodzy food (85), Procat food (100)",85,1/4kilo - procat 1 ,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+85,2//2026,Soha Ismail,,,ابر,,150,Ceft.,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+86,2/6/2026,Hala Sameh ,Shawkat,01011581154,تطعيم فطريات,,600,23/6 fungal insta,,,,,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE
+87,2/6/2026,Rana Ashraf,,01063333669,"ثماني, منتج, ديدان",,1050,panacure(100) 23/6,,,,,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE
+88,2/6/2026,Hajja Hoda,Boosy+bebo+ninja,01285271112,"ديدان, ثماني, منتج","Filos Can (100), Deverm (150)",950,x3Filos - 10%off - x2 deverm,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+89,2/6/2026,Menna Mohammed,zatona,01002448183,"عملية, استضافة",,1150,850+100+150,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+90,3/6/2026,Donia Yasser,,01028749045,,,100,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+91,3/6/2026,Soha Ismail,,01007221232,عملية,,600, hernia -  insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+92,3/6/2026,Alaa Khalid,,,,,300,cash,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+93,3/6/2026,Amany ,bondok,01012878577,"تنظيف اذن, قص ضوافر, حشرات, منتج",,420,cash,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+94,3/6/2026,Atya,,01006339521,"قص ضوافر, ديدان, منتج",,540,cash,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+95,3/6/2026,sedra,oreo,01111656881,"كشف , ابر, ديدان",,550,cash,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+96,4/6/2026,Ibrahim Yousef,,01022126212,"كشف , ابر",,210,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+97,4/6,Hamdy ,,01008122020,تحاليل,,900,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+98,4/6/2026,Trixie food,,,,,-375,,,,,,,#REF!,#REF!,#REF!,#REF!,#REF!,#REF!,#REF!
+100,4/6/2026,Menna Mohammed,,,"منتج, ابر",Filos Can (100),225,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+101,4/6/2026,Rahma Ramadan,lolo ,01119809290,"عملية, ابر",,550,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+102,4/6/2026,Soha Ismail,,,ابر,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+103,4/6/2026,Alaa Khalid,,,,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+104,4/6/2026,Mariam El Gamal ,,01500864485,تطعيم فطريات,,550,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+105,4/6/2026,تصليح صرف,,,,,-1200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+106,4/6/2026,Ibrahim Yousef,,,"ابر, ابره خارجيه",,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+107,4/6/2026,Sedra,,,"ابر, منتج",Pti Omega (150),240,dancet,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+108,5/6,Rahma Ramadan,,,ابر,,100,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+109,5/6/2026,Soha Ismail,,,ابر,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+110,5/6/2026,Menna Mohammed,zatona,01002448183,,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+111,5/6/2026,Noran Medhat,boray,01033425626,"حلاقه, قص ضوافر, حشرات, ديدان","Droppers (150), Deverm (150)",690,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+112,5/6/2026,Kareem Mansour,Nala,01027158882,"ديدان, سعار, قص ضوافر",,600,,,,,,,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE
+113,5/6/2026,Youseff El-Tahhan ,Tito +...,01020385737,"حلاقه, تنظيف اذن, قص ضوافر, حشرات","Droppers (150), Pti Oticleaner (100)",990,2cats,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+114,5/6/2026,Ahmed Ali ,simba,01002122150,"حلاقه, قص ضوافر",,300,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+115,5/6/2026,Noor Mohammed ,,,"كشف , ابر",,200,100 - Meloxic.ceft.hist.met,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+116,6/6/2026,Mai Ragab,,,عملية,,100,الخميس 6,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+117,6/6/2026,Rahma Ramadan,,,ابر,,100,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+118,6/6/2026,sonar,,,,,-300,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+119,6/6/2026,om yassmen,,,تطعيم فطريات,,1200,2,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+120,6/6/2026,Emad Ahmed,Luka,01006815605,"كشف , ابر",,350,movac hesta meta cef,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+121,6/6/2026,Ghada Mohammed,mera,01286614228,"تحاليل, عملية",,900,cbc.lft.rft - عمليه حجز الثلاث 6,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+122,6/6,lepto,,,,,-380,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+123,6/6,Noor Mohammed ,,,ابر,,350,movac.cef.hista.meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+124,6-6,كهرباء,,,,,-600,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+125,7-6,ehab,koko,,"عملية, ابر",,750,dexa meta hesta cef 2 days,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+126,7/6/2026,hala ghasan,Leo,01119464020,"كشف , ابر",,220,meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+127,7/6/2026,Mahmoud Arafat,Lail,,ديدان,Deverm (150),100,2 dose,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+128,7/6/2026,alla khaled,batats,,"كشف , ابر",,,350,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+129,7/6,mohamed salah,bosy,01006093271,"حشرات, ديدان, رباعي","Drontal (200), Droppers (150)",920,خد بقيه الحبايه,,,,,,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE
+130,7/6,emad ahmed,luka / bedo,,"ابر, كشف",,550,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+131,7/6,mohamed alzohery,simba,01012340259,"حشرات, ديدان, رباعي, كشف , تنظيف اذن, منتج","Pti Oticleaner (100), Droppers (150)",1440,,,,,,,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE
+132,7/6,Masa,,,ابر,,400,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+133,8/6,ehab,koko,,منتج,,230,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+134,8/6,abo shahd,,,,,-150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+135,8/6,doha khaled,,,"ابر, حشرات, ديدان","Droppers (150), Drontal (200)",465,hesta حاسبت علي نص حبايه فقط,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+136,8/6/2026,Noha Ahmed,Dusty,,ابر,,140,hesta meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+137,8/6/2026,Noor Mohammed ,,,ابر,,200,hesta meta movac cef maxilase,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+138,9/6/2026,Hala Ghasan,Leo,01119464020,تحاليل,,600,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+139,9/6/2026,Asmaa Hany ,Bo2loz,,"تطعيم فطريات, حلاقه, قص ضوافر",,850,insta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+140,9/6/2026,ehab,koko,,,,,400,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+141,9/6/2026,Mahmoud El behery,Oreo,01140107030,"ثماني, سعار",,1050,450-600,,,,,,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE
+142,9/6/2026,Lepto + Ceftriaxone,,,,,-575,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+143,9/6,Doha Hafiz,Silver,01012270526,"حشرات, حلاقه, Lab",,,1200,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+144,9/6/2026,Noha Ahmed,,01102472910,,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+145,9/6,Lena ,Simba,01028863775,رباعي,,600,,,,,,,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+146,10/6,mohamed adel,,01128340422,,,2400,bravecto,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+147,10/6,Menna Mohammed,Zatona,01002448183,,,0,follow up,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+148,10/6,Noha Ahmed,,,ابر,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+149,10/6/2026,shreen sa3ed,,0127457737,"كشف , ابر",,200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,10/6/2026,islam,hayla,01144508110,ابر,,290,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,11/6/2026,Hamdy ,,,ديدان,,120,deverm,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+,11/6/2026,Hala Ghasan ,Leo,01119464020,"عملية , ابر",,1050,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,11/6/2026,Soha Ismail ,,,رباعي,,600,,,,,,,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+,11/6,Mai,,,"عملية , ابر, منتج",forvet spray (120),1180,,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,11/6,Mohammed Essa,,01026107910,"كشف , ابر",,400,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,11/6,Noha Ahmed,,,ابر,,150,hesta meta,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,11/6,Ahmed Samy ,oreo,01022309411,"ابر, كشف",,250,gastroden   antoblex,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,11/6,فايلات ادويه + كلور,,,,,-650,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,12/6/2026,Hala Ghasan,Leo,01119464020,ابر,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,12/6,shema ramadan,mshmsh,,رباعي,,550,,,,,,,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+,12/6/2026,Malak Abo El fotoo7,Babsy,01018255448,"حلاقه, تنظيف اذن, منتج",Pti Oticleaner (100),620,خد بنج منتج 170,,,,,,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,12/6,mai ragab,seta,,ابر,,200,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,12/6,naden,oreo,,"كشف , ابر",,170,hesta meta movac cef,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+,12/6,naden,tote,,"كشف , ابر",,350, ليهم باقي 80 hesta meta movac cef oxy tetra,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+165,12/6,noha ahmed,,,ابر,,150,,,,,,,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+166,12/6,omnia gamal,amna,01037477620,"كشف , سونار, منتج",Josi (300),700,,,,,,,,,,,,,
+167,13/6,naden,,,"ابر, كشف , تنظيف اذن",,470,,,,,,,,,,,,,
+168,13/6,mohamed ashraf,samroh,01000625155,"كشف , ابر, منتج, سونار","Alonzo Ren (200), Alonzo Cyst (200)",930,cef movac,,,,,,,,,,,,
+169,13/6,hala gasan,leo,,ابر,,150,,,,,,,,,,,,,
+170,13/6,tarek mohamed,bosy,01110100271,"حلاقه, ابر",,670,حلاقه 350 dexa hesta meta movac,,,,,,,,,,,,
+171,13/6,om yassmen,,,"كشف , ابر, ديدان, منتج","Zee litter (120), sarar",3100,,,,,,,,,,,,,
+172,13/6,mai ragab,,,ابر,,250,,,,,,,,,,,,,
+173,13/6,khaled saed,losy,01508333443,"كشف , ابر, ديدان",Deverm (150),450,,,,,,,,,,,,,
+174,13/6,islam ,,,ابر,,150,,,,,,,,,,,,,
+175,14/6,om mohamed,harly,01117774862,"حشرات, ديدان, كشف","Evatri (200), Bravecto",1550,,,,,,,,,,,,,
+176,14/6,daren,,,منتج,Zee litter (120),135,,,,,,,,,,,,,
+177,14/6,mohamed essam,atef,01156287430,"كشف , ابر, حشرات, سونار, حلاقه, تحاليل",,1850,,,,,,,,,,,,,
+178,14/6,mohamed ashraf,,,"ابر, منتج, استضافة, محاليل",,1000,my dear urinary,,,,,,,,,,,,
+179,14/6,mohamed ashraf,,,حلاقه,,200,,,,,,,,,,,,,
+180,14/6,naden,,,ابر,,800,,,,,,,,,,,,,
+181,14/6,adel samy,bounty,01020916153,"كشف , ابر",,500,طوارء,,,,,,,,,,,,
+182,15/6/2026,lepto + اعلان,,,,,-1380,,,,,,,,,,,,,
+183,15/6/2026,Yassine Yasser,Lail,01555235793,"كشف , ابر",,300,Movac.hist.meta,,,,,,,,,,,,
+184,15/6/2026,Trixie food,,,,,-375,,,,,,,,,,,,,
+185,15/6,asala mohamed,ayan,01062994784,"كشف , ابر, سونار, تحاليل, محاليل",,1700,fodafon gastro dexa hesta cabrn cef,,,,,,,,,,,,
+186,15/6,mohamed essam,atef,,"ديدان, ابر",,420,,,,,,,,,,,,,
+187,15/6,naden,,,"ابر, منتج",Pti Oticleaner (100),230,,,,,,,,,,,,,
+188,15/6,Shereen Saeed,,,استضافة,,600,اليوم ب 150 اتحت الحساب,,,,,,,,,,,,
+189,15/6,adel samy,,,ابر,,200,,,,,,,,,,,,,
+190,16/6,Obada Mohammed,,01122120020,,,300,,,,,,,,,,,,,
+,15/6,Lepto,,,,,-510,,,,,,,,,,,,,
+,15/6,Asala Mohammed,,01062994784,,,300,,,,,,,,,,,,,
+,15/6,asala Mohammed,,01062994784,,,,,,,,,,,,,,,,
