@@ -1,143 +1,84 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
-export default function DashboardPage() {
-  const [profile, setProfile] = useState<{ name: string; role: string } | null>(null)
-  const router = useRouter()
+type VisitLogEntry = {
+  visit_id: string
+  patient_name: string
+  owner_name: string
+  doctor_name: string | null
+  visit_time: string
+  total: number
+}
+
+function todayISO() {
+  return new Date().toISOString().split('T')[0]
+}
+
+export default function VisitsLogPage() {
+  const [date, setDate] = useState(todayISO())
+  const [visits, setVisits] = useState<VisitLogEntry[]>([])
+  const [loading, setLoading] = useState(true)
+
+  const loadVisits = useCallback(async (targetDate: string) => {
+    setLoading(true)
+    const { data, error } = await supabase.rpc('get_visits_for_date', { target_date: targetDate })
+    if (!error && data) setVisits(data)
+    setLoading(false)
+  }, [])
 
   useEffect(() => {
-    async function loadProfile() {
-      const { data: { user } } = await supabase.auth.getUser()
+    loadVisits(date)
+  }, [date, loadVisits])
 
-      if (!user) {
-        router.push('/login')
-        return
-      }
-
-      const { data } = await supabase
-        .from('profiles')
-        .select('name, role')
-        .eq('id', user.id)
-        .single()
-
-      setProfile(data)
-    }
-
-    loadProfile()
-  }, [router])
-
-  async function handleLogout() {
-    await supabase.auth.signOut()
-    router.push('/login')
-  }
-
-  if (!profile) {
-    return (
-      <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
-        <p className="text-zinc-400 text-sm">Loading...</p>
-      </div>
-    )
-  }
+  const dayTotal = visits.reduce((sum, v) => sum + Number(v.total), 0)
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-clinic-red px-6 py-4 flex items-center justify-between">
-        <h1 className="text-white font-semibold text-lg">Dashboard</h1>
-        <div className="flex items-center gap-4">
-          <span className="text-white text-sm">{profile.name} · {profile.role}</span>
-          <button
-            onClick={handleLogout}
-            className="text-sm bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg transition-colors"
-          >
-            Log Out
-          </button>
-        </div>
-      </div>
+      <PageHeader title="Visit Log" accentColor="bg-blue-600" backHref="/dashboard" />
 
       <div className="p-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl">
-          <Link
-            href="/clients"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-teal-600 transition-colors"
-          >
-            <p className="text-teal-600 text-sm font-medium">Clients & Patients</p>
-            <p className="text-zinc-400 text-xs mt-1">Search or add clients</p>
-          </Link>
+        <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">
+          <div className="flex items-center justify-between mb-4">
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="px-3 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <Link href="/visits/new" className="text-sm text-blue-600 hover:text-blue-700">
+              + New Visit
+            </Link>
+          </div>
 
-          <Link
-            href="/inventory"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-amber-600 transition-colors"
-          >
-            <p className="text-amber-600 text-sm font-medium">Inventory</p>
-            <p className="text-zinc-400 text-xs mt-1">Stock & low-stock alerts</p>
-          </Link>
+          {loading && <p className="text-sm text-zinc-400">Loading...</p>}
+          {!loading && visits.length === 0 && <p className="text-sm text-zinc-400">No visits logged for this date.</p>}
 
+          <div className="flex flex-col gap-2 mb-4">
+            {visits.map((visit) => (
+              <div key={visit.visit_id} className="border border-zinc-200 rounded-lg p-3 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-zinc-900">{visit.patient_name}</p>
+                  <p className="text-xs text-zinc-500">Owner: {visit.owner_name} · Dr. {visit.doctor_name || '—'}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm font-medium text-zinc-900">${Number(visit.total).toFixed(2)}</p>
+                  <p className="text-xs text-zinc-400">
+                    {new Date(visit.visit_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-          <Link
-            href="/visits"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-blue-600 transition-colors"
-          >
-            <p className="text-blue-600 text-sm font-medium">Visits</p>
-            <p className="text-zinc-400 text-xs mt-1">Today's visit log</p>
-          </Link>
-
-          <Link
-            href="/reminders"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-emerald-600 transition-colors"
-          >
-            <p className="text-emerald-600 text-sm font-medium">Reminders</p>
-            <p className="text-zinc-400 text-xs mt-1">Treatments due soon</p>
-          </Link>
-
-          <Link
-            href="/billing"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-          >
-            <p className="text-green-600 text-sm font-medium">Billing</p>
-            <p className="text-zinc-400 text-xs mt-1">Outstanding balances</p>
-          </Link>
-
-          {profile.role === 'doctor' && (
-            <>
-
-
-              
-              <Link
-                href="/expenses"
-                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-              >
-                <p className="text-green-600 text-sm font-medium">Expenses</p>
-                <p className="text-zinc-400 text-xs mt-1">Rent, utilities & more</p>
-              </Link>
-
-              <Link
-                href="/suppliers"
-                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-              >
-                <p className="text-green-600 text-sm font-medium">Suppliers</p>
-                <p className="text-zinc-400 text-xs mt-1">Bills you owe</p>
-              </Link>
-
-              <Link
-                href="/revenue"
-                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-              >
-                <p className="text-green-600 text-sm font-medium">Revenue & Cash</p>
-                <p className="text-zinc-400 text-xs mt-1">Profit, balances & payables</p>
-              </Link>
-
-              <Link
-                href="/backup"
-                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-green-600 transition-colors"
-              >
-                <p className="text-green-600 text-sm font-medium">Backup</p>
-                <p className="text-zinc-400 text-xs mt-1">Export your data</p>
-              </Link>
-            </>
+          {visits.length > 0 && (
+            <div className="flex justify-between items-baseline pt-3 border-t border-zinc-200">
+              <span className="text-sm text-zinc-600">Day total</span>
+              <span className="text-lg font-semibold text-zinc-900">${dayTotal.toFixed(2)}</span>
+            </div>
           )}
         </div>
       </div>
