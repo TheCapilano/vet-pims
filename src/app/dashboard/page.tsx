@@ -69,11 +69,11 @@ export default function DashboardPage() {
           </Link>
 
           <Link
-            href="/inventory"
-            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-amber-600 transition-colors"
+            href="/visits/new"
+            className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-blue-600 transition-colors"
           >
-            <p className="text-amber-600 text-sm font-medium">Inventory</p>
-            <p className="text-zinc-400 text-xs mt-1">Stock & low-stock alerts</p>
+            <p className="text-blue-600 text-sm font-medium">New Visit</p>
+            <p className="text-zinc-400 text-xs mt-1">Log a patient visit</p>
           </Link>
 
           <Link
@@ -108,6 +108,14 @@ export default function DashboardPage() {
               >
                 <p className="text-green-600 text-sm font-medium">Expenses</p>
                 <p className="text-zinc-400 text-xs mt-1">Rent, utilities & more</p>
+              </Link>
+
+              <Link
+                href="/inventory"
+                className="bg-white rounded-xl shadow-sm border border-zinc-200 p-5 hover:border-amber-600 transition-colors"
+              >
+                <p className="text-amber-600 text-sm font-medium">Inventory</p>
+                <p className="text-zinc-400 text-xs mt-1">Stock & low-stock alerts</p>
               </Link>
 
               <Link
