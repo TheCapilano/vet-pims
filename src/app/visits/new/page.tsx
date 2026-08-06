@@ -51,6 +51,7 @@ export default function NewVisitPage() {
 
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [userRole, setUserRole] = useState<string | null>(null)
 
   const searchPatients = useCallback(async (term: string) => {
     if (!term.trim()) {
@@ -68,6 +69,16 @@ export default function NewVisitPage() {
     const timeoutId = setTimeout(() => searchPatients(patientSearch), 300)
     return () => clearTimeout(timeoutId)
   }, [patientSearch, searchPatients])
+
+  useEffect(() => {
+    async function loadRole() {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) return
+      const { data } = await supabase.from('profiles').select('role').eq('id', user.id).single()
+      setUserRole(data?.role || null)
+    }
+    loadRole()
+  }, [])
 
   const searchInventory = useCallback(async (term: string) => {
     if (!term.trim()) {
@@ -342,6 +353,7 @@ export default function NewVisitPage() {
                         step="0.01"
                         value={item.price}
                         onChange={(e) => updateLineItem(i, 'price', Number(e.target.value))}
+                        disabled={userRole !== 'doctor'}
                         className="w-20 px-2 py-1 border border-zinc-300 rounded text-sm text-zinc-900"
                       />
                       <button
