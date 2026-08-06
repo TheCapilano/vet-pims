@@ -157,13 +157,7 @@ export default function NewVisitPage() {
 
     // Create the invoice, auto-calculated from the line items total
     const { data: invoice, error: invoiceError } = await supabase
-      .from('invoices')
-      .insert({
-        visit_id: visit.id,
-        total_due: total,
-      })
-      .select()
-      .single()
+      .rpc('create_invoice',{p_visit_id: visit.id, p_total_due: total})
 
     if (invoiceError) {
       console.error('Failed to create invoice:', invoiceError.message)
@@ -173,7 +167,7 @@ export default function NewVisitPage() {
     const paidNow = Number(paymentAmount) || 0
     if (invoice && paidNow > 0) {
       const { error: paymentError } = await supabase.from('payments').insert({
-        invoice_id: invoice.id,
+        invoice_id: invoice.Id,
         amount: paidNow,
         method: paymentMethod,
         created_by: user?.id,

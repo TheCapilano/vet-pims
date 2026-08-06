@@ -3,13 +3,14 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PageHeader from '@/components/PageHeader'
 
 type ClientResult = {
   client_id: string
   name: string
   address: string | null
-  phone_numbers: string[]
-  patient_names: string[]
+  phone_numbers: string[] | null
+  patient_names: string[] | null
 }
 
 export default function ClientsPage() {
@@ -22,14 +23,9 @@ export default function ClientsPage() {
       setResults([])
       return
     }
-
     setSearching(true)
-    const { data, error } = await supabase
-      .rpc('search_clients', { search_term: term })
-
-    if (!error && data) {
-      setResults(data)
-    }
+    const { data, error } = await supabase.rpc('search_clients', { search_term: term })
+    if (!error && data) setResults(data)
     setSearching(false)
   }, [])
 
@@ -38,11 +34,7 @@ export default function ClientsPage() {
       setResults([])
       return
     }
-
-    const timeoutId = setTimeout(() => {
-      runSearch(searchTerm)
-    }, 300)
-
+    const timeoutId = setTimeout(() => runSearch(searchTerm), 300)
     return () => clearTimeout(timeoutId)
   }, [searchTerm, runSearch])
 
@@ -53,12 +45,7 @@ export default function ClientsPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="bg-teal-600 px-6 py-4 flex items-center gap-4">
-        <Link href="/dashboard" className="text-sm text-white/80 hover:text-white">
-          ← Back
-        </Link>
-        <h1 className="text-white font-semibold text-lg">Clients</h1>
-      </div>
+      <PageHeader title="Clients" accentColor="bg-teal-600" backHref="/dashboard" />
 
       <div className="p-6">
         <div className="bg-white rounded-xl shadow-sm border border-zinc-200 p-6 max-w-lg">
@@ -79,10 +66,7 @@ export default function ClientsPage() {
             </button>
           </form>
 
-          {searching && (
-            <p className="text-sm text-zinc-400 mb-2">Searching...</p>
-          )}
-
+          {searching && <p className="text-sm text-zinc-400 mb-2">Searching...</p>}
           {!searching && results.length === 0 && searchTerm && (
             <p className="text-sm text-zinc-500 mb-2">No matches. You can add this as a new client below.</p>
           )}

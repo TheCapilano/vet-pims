@@ -7,7 +7,7 @@ import PageHeader from '@/components/PageHeader'
 
 type PhoneEntry = {
   phone_number: string
-  type: 'call' | 'whatsapp'
+  type: 'call' | 'whatsapp' | 'both'
   label: string
 }
 
@@ -15,14 +15,14 @@ export default function NewClientPage() {
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [phones, setPhones] = useState<PhoneEntry[]>([
-    { phone_number: '', type: 'whatsapp', label: '' },
+    { phone_number: '', type: 'both', label: '' },
   ])
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
 
   function addPhoneField() {
-    setPhones([...phones, { phone_number: '', type: 'whatsapp', label: '' }])
+    setPhones([...phones, { phone_number: '', type: 'both', label: '' }])
   }
 
   function updatePhone(index: number, field: keyof PhoneEntry, value: string) {
@@ -75,7 +75,7 @@ export default function NewClientPage() {
       }
     }
 
-    router.push('/clients')
+    router.push(`/clients/${client.id}`)
   }
 
   return (
@@ -122,8 +122,9 @@ export default function NewClientPage() {
                       onChange={(e) => updatePhone(i, 'type', e.target.value)}
                       className="px-2 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-teal-600"
                     >
-                      <option value="whatsapp">WhatsApp</option>
-                      <option value="call">Call</option>
+                      <option value="both">Call + WhatsApp</option>
+                      <option value="whatsapp">WhatsApp only</option>
+                      <option value="call">Call only</option>
                     </select>
                     {phones.length > 1 && (
                       <button
